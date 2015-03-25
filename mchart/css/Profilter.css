@@ -1,0 +1,91 @@
+/*刻画器垂直&水平线样式*/
+html{
+    -webkit-text-size-adjust: none;
+}
+.Profilersty{
+    margin-left:100px;
+    position: relative;
+    border-left:solid 1px #a0a0a0;
+    border-top:solid 1px #a0a0a0;
+}
+.Vline{
+    position: absolute;
+    width:31px;
+    cursor: pointer;
+}
+.Vlineitem{
+    width:15px;
+    height:100%;
+    border-right:1px dashed red;
+}
+.Hline{
+    position: absolute;
+    height:11px;
+}
+.Hlineitem{
+    height:5px;
+    width:100%;
+    border-bottom:1px dashed red;
+}
+.ticklabelsty{
+    position: absolute;
+    font-size:12px;
+    font-family:"微软雅黑";
+}
+.titlesty{
+    position: absolute;
+    font-size:9px;
+    font-family:"微软雅黑";
+}
+.labelnowsty{
+    position: absolute;
+    font-size:9px;
+    font-weight:bold;
+    font-family:"微软雅黑";
+    color:red;
+}
+.khq_standpanelsty{
+
+}
+.SDLineMenuPanelsty{
+    display: none;
+    position: absolute;
+    border:solid 1px #dcdcdc;
+    background-color:#ffffff;
+}
+.linemenutitlerow{
+    display: -webkit-box;
+    height: auto;
+    background-color:#a0a0a0;
+}
+.linemenurow{
+    display: -webkit-box;
+    height: auto;
+}
+.linemenuxy{
+    min-width:80px;
+}
+.linemenul input[type='text']{
+    min-width:60px;
+    width:60px;
+}
+.StandLineSaveBar{
+    padding:5px;
+    text-align: right;
+}
+.StandLineSetSaveBar{
+    width: 100%;
+}
+.StandLineSetSave{
+    width:45px;
+    height:20px;
+    line-height:20px;
+    background-color:#2e8b57;
+    color:#ffffff;
+    float: right;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom:3px;
+    margin-top:3px;
+   margin-left:5px;
+}

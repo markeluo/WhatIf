@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset='utf-8'>
+    <title>刻画器</title>
+    <link href="css/Profilter.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        body{
+            margin: 0px auto;
+            font-family:"微软雅黑";
+        }
+        div{
+            font-family:"微软雅黑";
+            font-size:14px;
+        }
+        .mainclass{
+            margin:0px auto;
+            min-width:1024px;
+            height:100%;
+            /*border:solid 1px #dcdcdc;*/
+            /*display:-webkit-box;*/
+        }
+        .maincontent{
+            width:90%;
+            padding-left:5%;
+            padding-right:5%;
+            height: auto;
+        }
+        .khq_title{
+            height:40px;
+            line-height:50px;
+            border-bottom:solid 1px #15a230;
+            padding-left:15px;
+            font-size:16px;
+        }
+        .khq_rowtxt{
+            padding-left:35px;
+            line-height:25px;
+            height:25px;
+        }
+        .khq_rowlist{
+            padding-left: 100px;
+        }
+        .khq_content{
+            width:100%;
+            height:auto;
+            display:-webkit-box;
+        }
+        .khq_content_1{
+            /*width:780px;*/
+            -webkit-box-flex:1;
+            height:626px;
+        }
+        .khq_content_menu{
+            width:100%;
+            height:26px;
+            background-color:#15a230;
+        }
+        .chartcontentsty{
+            width:100%;
+            height:600px;
+            display:-webkit-box;
+        }
+        .khq_contentright{
+            padding-left:25px;
+            width:200px;
+        }
+        .khq_contentright_title{
+            font-size:16px;
+            border-top:solid 2px #40AA52;
+            height:22px;
+            line-height:22px;
+            display:-webkit-box;
+        }
+        .khq_contentright_titlelb{
+            background-color:#40AA52;
+            color:#ffffff;
+            height:22px;
+            line-height:22px;
+            padding-left:5px;
+            padding-right:5px;
+        }
+        .khq_contentright_titleimg{
+            width:20px;
+            height:22px;
+            background: url("images/tweetsSwitcher1.gif");
+        }
+        .khq_contentright_titleimg2{
+            width:20px;
+            height:22px;
+            background: url("images/tweetsSwitcher2.gif");
+        }
+        .khq_contentrightlist{
+            font-size:14px;
+        }
+        .khq_contentrightlist ul{
+            -webkit-padding-start: 0px;
+        }
+        .khq_contentrightlist ul li{
+            list-style-type:none;
+            border-bottom:dashed 1px #15a230;
+        }
+        .menuleftsty{
+            float: left;
+            height:26px;
+            line-height:26px;
+            padding-left:15px;
+            font-weight:bold;
+            color:#ffffff;
+        }
+        .menurightsty{
+            height:26px;
+            width:262px;
+            background:url("images/u31.png");
+            float: right;
+        }
+        .standline_menusty{
+            width:20px;
+            height:20px;
+            background-color:#ffffff;
+            float: right;
+            margin-right:5px;
+            margin-top:3px;
+            cursor:pointer;
+        }
+        .standline_menusty_item{
+            width:14px;
+            height:3px;
+            background-color:#15a230;
+            margin-left:3px;
+            margin-top: 3px;
+        }
+        .khq_tab{
+            width: 100%;
+            height: auto;
+            border: solid 1px #dcdcdc;
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin-bottom: 30px;
+        }
+        .khq_tab th{
+            border: solid 1px #dcdcdc;
+            height: 25px;
+            line-height: 25px;
+            background-color: #a0a0a0;
+            text-align: left;
+        }
+        .khq_tab td{
+            border: solid 1px #dcdcdc;
+        }
+    </style>
+</head>
+<body>
+<div class="mainclass">
+    <div class="maincontent">
+        <div class="khq_rowtxt">精馏塔名称：DA-452&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;进料流量：4.5 t/h</div>
+        <div class="khq_rowtxt" style="display: none;">原料组分：</div>
+        <div class="khq_rowlist" style="display: none;"><label id="ylzflist"></label></div>
+        <div class="khq_content">
+            <div class="khq_content_1">
+                <div class="khq_content_menu">
+                    <div class="menuleftsty">预测刻画器</div>
+                    <div class="menurightsty">
+                        <div id="standline_menu" class="standline_menusty">
+                            <div class="standline_menusty_item"></div>
+                            <div class="standline_menusty_item"></div>
+                            <div class="standline_menusty_item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="chartcontent" class="chartcontentsty">
+                </div>
+            </div>
+            <div class="khq_contentright" style="display:none;">
+                <div class="khq_contentright_title">
+                    <div class="khq_contentright_titlelb">
+                        产物收率
+                    </div>
+                    <div class="khq_contentright_titleimg"></div>
+                    <div class="khq_contentright_titleimg2"></div>
+                </div>
+                <div id="khq_contentrightlist" class="khq_contentrightlist"></div>
+            </div>
+        </div>
+        <div style="width: 100%;height: auto;">
+            <table class="khq_tab">
+                <thead>
+                <th>设备</th><th>变量</th><th>位号</th><th>单位</th><th>实际值</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">DA402/DA402B</td>
+                        <td>乙烯产品中乙烷浓度</td>
+                        <td> </td>
+                        <td>mol%</td>
+                        <td>0.020</td>
+                    </tr>
+                    <tr>
+                        <td>循环乙烷中乙烯浓度</td>
+                        <td> </td>
+                        <td>mol%</td>
+                        <td>0.053</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">DA542N</td>
+                        <td>乙烯产品中乙烷浓度</td>
+                        <td> </td>
+                        <td>mol%</td>
+                        <td>0.020</td>
+                    </tr>
+                    <tr>
+                        <td>循环乙烷中乙烯浓度</td>
+                        <td> </td>
+                        <td>mol%</td>
+                        <td>0.038</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/hammer.js"></script>
+<script type="text/javascript" src="js/Profiler452.js"></script>
+<script type="text/javascript" src="js/datamanager.js"></script>
+<script type="text/javascript">
+    var fixedData={
+        ylzf:[
+            {name:"链烷烃",value:52.6},
+            {name:"一环烷烃",value:23.2},
+            {name:"二环烷烃",value:10.9},
+            {name:"三环烷烃",value:5.1},
+            {name:"四环烷烃",value:3.1},
+            {name:"五环烷烃",value:1.7},
+            {name:"总环烷烃",value:44},
+            {name:"芳烃",value:3.4}
+        ],
+        cwsl:[
+            {name:"氢气",value:0.44,min:0.41,max:0.47,float:2},
+            {name:"甲烷",value:10.4,min:10.1,max:10.8,float:1},
+            {name:"乙烷",value:4.17,min:4.11,max:4.25,float:2},
+            {name:"乙烯",value:29.22,min:28.95,max:30.12,float:2},
+            {name:"乙炔",value:0.29,min:0.21,max:0.35,float:2},
+            {name:"丙烷",value:0.6,min:0.3,max:0.9,float:1},
+            {name:"丙烯",value:17.94,min:16.65,max:18.35,float:2},
+            {name:"丙炔",value:0.31,min:0.25,max:0.39,float:2},
+            {name:"丙二烯",value:0.24,min:0.18,max:0.32,float:2},
+            {name:"异丁烷",value:0.03,min:0.01,max:0.1,float:2},
+            {name:"正丁烷",value:0.36,min:0.21,max:0.46,float:2},
+            {name:"丁烯-1",value:3.38,min:2.53,max:4.25,float:2},
+            {name:"异丁烯",value:2.11,min:1.85,max:2.67,float:2},
+            {name:"反丁烯",value:0.65,min:0.45,max:0.78,float:2},
+            {name:"顺丁烯",value:0.5,min:0.1,max:0.9,float:1},
+            {name:"丁二烯",value:7.01,min:5.13,max:9.83,float:2},
+            {name:"苯",value:3.6,min:2.5,max:5.5,float:1},
+            {name:"甲苯",value:3.47,min:2.38,max:4.25,float:2},
+            {name:"二甲苯+乙苯",value:2.79,min:2.16,max:5.25,float:2},
+            {name:"苯乙烯",value:0.07,min:0.01,max:0.09,float:2},
+            {name:"裂解汽油",value:6.53,min:4.25,max:9.25,float:2},
+            {name:"裂解柴油",value:3.67,min:3.33,max:4.25,float:2},
+            {name:"裂解燃料油",value:2.22,min:2.10,max:5.55,float:2},
+            {name:"P/E",value:0.6140,min:0.5313,max:0.7825,float:4}
+        ]
+    }
+    $(document.body).ready(function(){
+        //1>原料组分 列表数据绑定
+        if(fixedData.ylzf!=null && fixedData.ylzf.length>0){
+            var ylzfhtml="";
+            for(var i=0;i<fixedData.ylzf.length;i++){
+                ylzfhtml+=fixedData.ylzf[i].name+"&nbsp;&nbsp;"+fixedData.ylzf[i].value+"%"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+            }
+            $("#ylzflist").html(ylzfhtml);
+        }
+
+        if(fixedData.cwsl!=null && fixedData.cwsl.length>0){
+            var cwslhtml="<ul>";
+            for(var i=0;i<fixedData.cwsl.length;i++){
+                cwslhtml+="<li>"+fixedData.cwsl[i].name+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+fixedData.cwsl[i].value+"</li>";
+            }
+            cwslhtml+="</ul>";
+            $("#khq_contentrightlist").html(cwslhtml);
+        }
+    });
+</script>
+</body>
+</html>
